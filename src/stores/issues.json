@@ -1,0 +1,12 @@
+[
+  { "id": 1, "state": "todo", "type": "start", "title": "Start Here" },
+  {
+    "id": 2,
+    "state": "todo",
+    "type": "math",
+    "title": "Try addition",
+    "expression": "1 + 1",
+    "answer": "2",
+    "dependsOn": 1
+  }
+]

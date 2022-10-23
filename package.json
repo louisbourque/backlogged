@@ -1,5 +1,5 @@
 {
-  "name": "admingame",
+  "name": "devgame",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -12,8 +12,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "pinia": "^2.0.11",
-    "vue": "^3.2.31",
+    "pinia": "^2.0.23",
+    "vue": "^3.2.41",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
@@ -36,9 +36,9 @@
     "prettier": "^2.5.1",
     "start-server-and-test": "^1.14.0",
     "tailwindcss": "^3.0.23",
-    "typescript": "~4.5.5",
+    "typescript": "^4.8.4",
     "vite": "^2.8.4",
     "vitest": "^0.5.0",
-    "vue-tsc": "^0.31.4"
+    "vue-tsc": "^1.0.9"
   }
 }
