@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import { useGameStore } from '@/stores/gameState'
-import Sidebar from '@/components/Sidebar.vue'
+import Topbar from '@/components/Topbar.vue'
 
 const gameState = useGameStore()
 </script>
 
 <template>
   <div class="flex h-screen">
-    <Sidebar v-if="gameState.name" />
+    <Topbar v-if="gameState.topbar" />
     <main class="flex-1 w-full bg-gray-200 lg:w-full">
       <RouterView />
     </main>

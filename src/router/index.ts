@@ -1,15 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import LoginView from '../views/LoginView.vue'
-import TableView from '../views/TableView.vue'
+import BoardView from '../views/BoardView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'Login',
-      component: LoginView,
+      redirect: '/board',
     },
     {
       path: '/home',
@@ -17,14 +15,9 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/table',
-      name: 'Table',
-      component: TableView,
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: () => import('../views/BoardView.vue'),
+      path: '/board',
+      name: 'Board',
+      component: BoardView,
     },
   ],
 })
