@@ -43,5 +43,7 @@ module.exports = {
     'tailwindcss/classnames-order': ['warn'],
     semi: 'off',
     quotes: ['error', 'single'],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
   },
 }

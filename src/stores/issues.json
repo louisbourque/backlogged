@@ -1,5 +1,12 @@
 [
-  { "id": 1, "state": "todo", "type": "start", "title": "Start Here" },
+  {
+    "id": 1,
+    "state": "todo",
+    "type": "start",
+    "title": "Start Here",
+    "description": "Welcome to Backlog - the game for developers. Click the <strong>Get Started</strong> button to start your journey as a developer!",
+    "tags": ["start"]
+  },
   {
     "id": 2,
     "state": "todo",
@@ -7,6 +14,7 @@
     "title": "Try addition",
     "expression": "1 + 1",
     "answer": "2",
-    "dependsOn": 1
+    "dependsOn": 1,
+    "tags": ["math"]
   }
 ]
