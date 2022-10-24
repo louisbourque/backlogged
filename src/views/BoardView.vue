@@ -2,6 +2,7 @@
 import { useGameStore, type Issue } from '@/stores/gameState'
 import { reactive } from 'vue'
 import IssueTag from '@/components/IssueTag.vue'
+import IssueContent from '@/components/IssueContent.vue'
 
 const gameStore = useGameStore()
 
@@ -73,7 +74,9 @@ const closeIssue = () => {
           </button>
         </header>
         <hr />
-        <div class="overflow-auto grow"></div>
+        <div class="overflow-auto grow">
+          <IssueContent :issue="state.currentIssue" />
+        </div>
       </div>
     </div>
   </div>

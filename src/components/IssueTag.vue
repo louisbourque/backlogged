@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { Calculator, Play, Activity } from 'lucide-vue-next'
 
-const props = defineProps({
-  tag: { type: String, required: true },
-})
+const props = defineProps<{
+  tag: string
+}>()
 </script>
 
 <template>

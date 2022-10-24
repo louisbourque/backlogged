@@ -6,7 +6,7 @@ export type Issue = {
   state: 'todo' | 'inProgress' | 'done'
   title: string
   type: string
-  description: string,
+  description: string
   expression?: string
   answer?: string
   dependsOn?: number
@@ -22,16 +22,17 @@ export type RootState = {
   todoIssues: Issue[]
   inProgressIssues: Issue[]
   doneIssues: Issue[]
+  updateIssue: (payload: Issue) => void
 }
 
 export const useGameStore = defineStore({
   id: 'gameStore',
   state: () =>
-    ({
-      name: '',
-      topBarStatus: false,
-      issues,
-    } as RootState),
+  ({
+    name: '',
+    topBarStatus: false,
+    issues,
+  } as RootState),
   getters: {
     topLinks: () => [{ to: '/home', text: 'Home', icon: 'home' }],
     topbar: (state) => state.topBarStatus,
@@ -52,11 +53,11 @@ export const useGameStore = defineStore({
       state.issues.filter((issue) => issue.state === 'done'),
   },
   actions: {
-    setName(name: string) {
-      this.name = name
-    },
-    setGameState(gameState: RootState) {
-      this.topBarStatus = gameState.topBarStatus
+    updateIssue(payload: Issue) {
+      const index = this.issues.findIndex((issue) => issue.id === payload.id)
+      if (index > -1) {
+        this.issues[index] = payload
+      }
     },
   },
 })
