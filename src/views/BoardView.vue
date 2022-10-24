@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useGameStore, type Issue } from '@/stores/gameState'
-import { reactive } from 'vue'
+import { reactive, computed } from 'vue'
 import IssueTag from '@/components/IssueTag.vue'
 import IssueContent from '@/components/IssueContent.vue'
 
@@ -12,13 +12,18 @@ const issueTypes = [
   { key: 'doneIssues', title: 'Done' },
 ]
 
-let state: { currentIssue: Issue | null } = reactive({ currentIssue: null })
+let state: { currentIssueId: number } = reactive({ currentIssueId: 0 })
+const currentIssue = computed(() => {
+  return state.currentIssueId === 0
+    ? null
+    : gameStore.issues.find((issue) => issue.id === state.currentIssueId)
+})
 
 const openIssue = (issue: Issue) => {
-  state.currentIssue = issue
+  state.currentIssueId = issue.id
 }
 const closeIssue = () => {
-  state.currentIssue = null
+  state.currentIssueId = 0
 }
 </script>
 
@@ -54,7 +59,7 @@ const closeIssue = () => {
         </div>
       </div>
     </div>
-    <div v-if="state.currentIssue">
+    <div v-if="currentIssue">
       <button
         class="fixed inset-0 w-screen h-screen bg-slate-900 opacity-50 duration-700"
         @click="closeIssue"
@@ -66,8 +71,8 @@ const closeIssue = () => {
       >
         <header class="relative">
           <div class="p-2 mr-12">
-            <div>Issue #{{ state.currentIssue.id }}</div>
-            <h3>{{ state.currentIssue.title }}</h3>
+            <div>Issue #{{ currentIssue.id }}</div>
+            <h3>{{ currentIssue.title }}</h3>
           </div>
           <button class="absolute top-2 right-2" @click="closeIssue">
             Close
@@ -75,7 +80,7 @@ const closeIssue = () => {
         </header>
         <hr />
         <div class="overflow-auto grow">
-          <IssueContent :issue="state.currentIssue" />
+          <IssueContent :issue="currentIssue" @close="closeIssue"/>
         </div>
       </div>
     </div>

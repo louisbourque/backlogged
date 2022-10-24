@@ -8,7 +8,14 @@ const props = defineProps<{
   issue: Issue
 }>()
 
+const emit = defineEmits<{
+  (e: 'close'): void
+}>()
+
 const update = (payload: Record<string, unknown>) => {
+  if (payload.state === 'done') {
+    emit('close')
+  }
   gameStore.updateIssue({
     ...props.issue,
     ...payload,
@@ -33,5 +40,6 @@ const update = (payload: Record<string, unknown>) => {
         Get Started
       </button>
     </div>
+    <div v-else> Great work! This task is complete. Have a look at your other tasks to continue.</div>
   </div>
 </template>
