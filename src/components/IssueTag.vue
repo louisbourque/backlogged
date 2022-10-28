@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Calculator, Play, Activity } from 'lucide-vue-next'
+import { Calculator, Play, Activity, FileQuestion } from 'lucide-vue-next'
 
 const props = defineProps<{
   tag: string
@@ -15,6 +15,11 @@ const props = defineProps<{
       v-else-if="tag === 'math'"
       size="12"
       class="inline text-yellow-600"
+    />
+    <FileQuestion
+      v-else-if="tag === 'trivia'"
+      size="12"
+      class="inline text-purple-600"
     />
     <Activity v-else size="12" class="inline text-red" />
     {{ props.tag }}

@@ -3,6 +3,7 @@ import { useGameStore, type Issue } from '@/stores/gameState'
 import { reactive, computed } from 'vue'
 import IssueTag from '@/components/IssueTag.vue'
 import IssueContent from '@/components/IssueContent.vue'
+import { X } from 'lucide-vue-next'
 
 const gameStore = useGameStore()
 
@@ -29,7 +30,7 @@ const closeIssue = () => {
 
 <template>
   <div class="flex flex-col p-4 text-gray-800">
-    <h1 class="mb-2">Backlog</h1>
+    <h1 class="mb-2">Backlogged</h1>
 
     <div class="flex flex-row gap-4 h-full">
       <div
@@ -74,15 +75,22 @@ const closeIssue = () => {
             <div>Issue #{{ currentIssue.id }}</div>
             <h3>{{ currentIssue.title }}</h3>
           </div>
-          <button class="absolute top-2 right-2" @click="closeIssue">
-            Close
+          <button
+            class="absolute top-2 right-2"
+            @click="closeIssue"
+            aria-label="Close Issue"
+          >
+            <X size="26" class="inline text-slate-900" />
           </button>
         </header>
         <hr />
         <div class="overflow-auto grow">
-          <IssueContent :issue="currentIssue" @close="closeIssue"/>
+          <IssueContent :issue="currentIssue" @close="closeIssue" />
         </div>
       </div>
+    </div>
+    <div @click="gameStore.resetGameState()" class="absolute right-0 bottom-0">
+      <button>reset</button>
     </div>
   </div>
 </template>

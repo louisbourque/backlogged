@@ -4,7 +4,7 @@
     "state": "todo",
     "type": "start",
     "title": "Start Here",
-    "description": "Welcome to Backlog - the game for developers. Click the <strong>Get Started</strong> button to start your journey as a developer!",
+    "description": "Welcome to Backlogged - the game for developers. Click the <strong>Get Started</strong> button to start your journey as a developer!",
     "tags": ["start"]
   },
   {
@@ -17,5 +17,15 @@
     "answer": "2",
     "dependsOn": 1,
     "tags": ["math"]
+  },
+  {
+    "id": 3,
+    "state": "todo",
+    "type": "trivia",
+    "title": "Simple Trivia",
+    "description": "okay, so you know your math. How about some trivia? How many moons does Earth have?",
+    "answer": "1",
+    "dependsOn": 2,
+    "tags": ["trivia"]
   }
 ]

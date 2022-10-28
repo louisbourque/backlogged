@@ -4,6 +4,7 @@ import { useGameStore } from '@/stores/gameState'
 import Topbar from '@/components/Topbar.vue'
 
 const gameState = useGameStore()
+gameState.loadGameState()
 </script>
 
 <template>
