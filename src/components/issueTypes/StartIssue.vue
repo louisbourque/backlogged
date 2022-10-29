@@ -7,7 +7,7 @@ const emit = defineEmits<{
 <template>
   <div class="text-right">
     <button
-      class="p-2 text-gray-50 bg-green-600 rounded-lg border border-green-800 border-1"
+      class="border-1 p-2 text-gray-50 bg-green-600 rounded-lg border border-green-800"
       @click="emit('update', { state: 'done' })"
     >
       Complete Task

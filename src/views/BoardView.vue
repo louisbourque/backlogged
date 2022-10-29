@@ -13,7 +13,7 @@ const issueTypes = [
   { key: 'doneIssues', title: 'Done' },
 ]
 
-let state: { currentIssueId: number } = reactive({ currentIssueId: 0 })
+const state: { currentIssueId: number } = reactive({ currentIssueId: 0 })
 const currentIssue = computed(() => {
   return state.currentIssueId === 0
     ? null
@@ -44,7 +44,9 @@ const closeIssue = () => {
             v-if="(gameStore[type.key as keyof typeof gameStore] as Issue[]).length > 0"
             class="inline px-1.5 ml-1 h-5 text-sm font-semibold bg-slate-300 rounded-full"
           >
-            {{ (gameStore[type.key as keyof typeof gameStore] as Issue[]).length }}
+            {{
+              (gameStore[type.key as keyof typeof gameStore] as Issue[]).length
+            }}
           </div>
         </div>
         <div

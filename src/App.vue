@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import { useGameStore } from '@/stores/gameState'
-import Topbar from '@/components/Topbar.vue'
+import TopBar from '@/components/TopBar.vue'
 
 const gameState = useGameStore()
 gameState.loadGameState()
@@ -9,7 +9,7 @@ gameState.loadGameState()
 
 <template>
   <div class="flex flex-col h-full">
-    <Topbar v-if="gameState.topbar" />
+    <TopBar v-if="gameState.topbar" />
     <main class="flex grow w-full bg-white">
       <RouterView />
     </main>

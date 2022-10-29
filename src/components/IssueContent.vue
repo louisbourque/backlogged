@@ -34,12 +34,15 @@ const update = (payload: Record<string, unknown>) => {
     />
     <div v-else-if="props.issue.state === 'todo'" class="text-right">
       <button
-        class="p-2 text-gray-50 bg-green-600 rounded-lg border border-green-800 border-1"
+        class="border-1 p-2 text-gray-50 bg-green-600 rounded-lg border border-green-800"
         @click="update({ state: 'inProgress' })"
       >
         Get Started
       </button>
     </div>
-    <div v-else> Great work! This task is complete. Have a look at your other tasks to continue.</div>
+    <div v-else>
+      Great work! This task is complete. Have a look at your other tasks to
+      continue.
+    </div>
   </div>
 </template>

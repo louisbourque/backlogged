@@ -24,7 +24,6 @@ module.exports = {
     'no-console': 'warn',
     'no-debugger': 'warn',
     'no-undef': 'warn',
-    'no-unused-vars': 'warn',
     'require-await': 'warn',
     'no-return-await': 'error',
     'no-duplicate-imports': 'error',
@@ -43,7 +42,6 @@ module.exports = {
     'tailwindcss/classnames-order': ['warn'],
     semi: 'off',
     quotes: ['error', 'single'],
-    'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
   },
 }

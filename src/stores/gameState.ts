@@ -63,7 +63,7 @@ export const useGameStore = defineStore({
     ({
       name: '',
       topBarStatus: false,
-      issues,
+      issues: [...(issues as Issue[])],
     } as RootState),
   getters: {
     topLinks: () => [{ to: '/home', text: 'Home', icon: 'home' }],
@@ -101,7 +101,7 @@ export const useGameStore = defineStore({
       Object.assign(this, {
         name: '',
         topBarStatus: false,
-        issues,
+        issues: [...(issues as Issue[])],
       })
     },
     updateIssue(payload: Issue) {

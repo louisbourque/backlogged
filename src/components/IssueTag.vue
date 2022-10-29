@@ -8,7 +8,7 @@ const props = defineProps<{
 
 <template>
   <div
-    class="inline py-px px-1 text-xs bg-slate-100 rounded-lg border border-slate-300 border-1"
+    class="border-1 inline py-px px-1 text-xs bg-slate-100 rounded-lg border border-slate-300"
   >
     <Play v-if="tag === 'start'" size="12" class="inline text-green-600" />
     <Calculator
@@ -21,7 +21,7 @@ const props = defineProps<{
       size="12"
       class="inline text-purple-600"
     />
-    <Activity v-else size="12" class="inline text-red" />
+    <Activity v-else size="12" class="text-red inline" />
     {{ props.tag }}
   </div>
 </template>

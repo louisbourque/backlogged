@@ -9,7 +9,7 @@ const emit = defineEmits<{
   (e: 'update', value: unknown): void
 }>()
 
-let answer = ref('')
+const answer = ref('')
 </script>
 
 <template>
@@ -18,13 +18,13 @@ let answer = ref('')
       <input
         v-model="answer"
         type="text"
-        class="px-2 w-12 border border-black border-1"
+        class="border-1 px-2 w-12 border border-black"
       />
     </div>
     <div class="text-right">
       <button
         v-if="props.issue.answer === answer"
-        class="p-2 text-gray-50 bg-green-600 rounded-lg border border-green-800 border-1"
+        class="border-1 p-2 text-gray-50 bg-green-600 rounded-lg border border-green-800"
         @click="emit('update', { state: 'done' })"
       >
         Complete Task
