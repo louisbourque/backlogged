@@ -52,6 +52,7 @@ export type RootState = {
   todoIssues: Issue[]
   inProgressIssues: Issue[]
   doneIssues: Issue[]
+  showColor: boolean
   updateIssue: (payload: Issue) => void
   loadGameState: (localGameState?: unknown) => void
   saveGameState: () => void
@@ -60,11 +61,11 @@ export type RootState = {
 export const useGameStore = defineStore({
   id: 'gameStore',
   state: () =>
-    ({
-      name: '',
-      topBarStatus: false,
-      issues: [...(issues as Issue[])],
-    } as RootState),
+  ({
+    name: '',
+    topBarStatus: false,
+    issues: [...(issues as Issue[])],
+  } as RootState),
   getters: {
     topLinks: () => [{ to: '/home', text: 'Home', icon: 'home' }],
     topbar: (state) => state.topBarStatus,
@@ -83,6 +84,8 @@ export const useGameStore = defineStore({
       state.issues.filter((issue) => issue.state === 'inProgress'),
     doneIssues: (state) =>
       state.issues.filter((issue) => issue.state === 'done'),
+    showColor: (state) =>
+      state.issues.find((issue) => issue.id === 4)?.state === 'done',
   },
   actions: {
     loadGameState(localGameState: unknown) {

@@ -34,7 +34,12 @@ const update = (payload: Record<string, unknown>) => {
     />
     <div v-else-if="props.issue.state === 'todo'" class="text-right">
       <button
-        class="border-1 p-2 text-gray-50 bg-green-600 rounded-lg border border-green-800"
+        class="border-1 p-2 text-gray-50 rounded-lg border"
+        :class="
+          gameStore.showColor
+            ? 'bg-green-600 border-green-800'
+            : 'text-slate-800'
+        "
         @click="update({ state: 'inProgress' })"
       >
         Get Started

@@ -16,16 +16,15 @@ const answer = ref('')
 <template>
   <div class="p-4">
     <div>
-      {{ props.issue.expression }} =
       <input
         v-model="answer"
         type="text"
-        class="border-1 px-2 w-12 border border-black"
+        class="border-1 px-2 w-16 border border-black"
       />
     </div>
     <div class="text-right">
       <button
-        v-if="props.issue.answer === answer"
+        v-if="props.issue.answer?.toLowerCase() === answer"
         class="border-1 p-2 text-gray-50 rounded-lg border"
         :class="
           gameStore.showColor

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { Issue } from '@/stores/gameState'
+import { useGameStore, type Issue } from '@/stores/gameState'
 
+const gameStore = useGameStore()
 const props = defineProps<{
   issue: Issue
 }>()
@@ -24,7 +25,12 @@ const answer = ref('')
     <div class="text-right">
       <button
         v-if="props.issue.answer === answer"
-        class="border-1 p-2 text-gray-50 bg-green-600 rounded-lg border border-green-800"
+        class="border-1 p-2 text-gray-50 rounded-lg border"
+        :class="
+          gameStore.showColor
+            ? 'bg-green-600 border-green-800'
+            : 'text-slate-800'
+        "
         @click="emit('update', { state: 'done' })"
       >
         Complete Task

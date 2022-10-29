@@ -27,5 +27,16 @@
     "answer": "1",
     "dependsOn": 2,
     "tags": ["trivia"]
+  },
+  {
+    "id": 4,
+    "state": "todo",
+    "type": "dev",
+    "title": "Add a splash of colour",
+    "description": "Still here eh? I appreciate the didication! Now it's time to get to work. The site could use a little colour. Just don't go overboard. What does the G in RGB stand for?",
+    "answer": "green",
+    "dependsOn": 3,
+    "tags": ["dev"]
   }
+
 ]
