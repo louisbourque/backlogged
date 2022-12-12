@@ -4,38 +4,28 @@
     "state": "todo",
     "type": "start",
     "title": "Start Here",
+    "progress_label": "Preparing",
     "description": "Welcome to Backlogged - the game for developers. Click the <strong>Get Started</strong> button to start your journey as a developer!",
     "tags": ["start"]
   },
   {
     "id": 2,
     "state": "todo",
-    "type": "maths",
-    "title": "Simple Math",
-    "description": "Solve the given equation.",
-    "expression": "1 + 1",
-    "answer": "2",
+    "type": "dev",
+    "title": "Get into flow",
+    "progress_label": "Focusing",
+    "description": "You're starting to get the hang of this development work. Keep up the great work!",
     "dependsOn": 1,
-    "tags": ["math"]
+    "tags": ["dev"]
   },
   {
     "id": 3,
     "state": "todo",
-    "type": "trivia",
-    "title": "Simple Trivia",
-    "description": "okay, so you know your math. How about some trivia? How many moons does Earth have?",
-    "answer": "1",
-    "dependsOn": 2,
-    "tags": ["trivia"]
-  },
-  {
-    "id": 4,
-    "state": "todo",
     "type": "dev",
     "title": "Add a splash of colour",
-    "description": "Still here eh? I appreciate the didication! Now it's time to get to work. The site could use a little colour. Just don't go overboard. What does the G in RGB stand for?",
-    "answer": "green",
-    "dependsOn": 3,
+    "progress_label": "Painting",
+    "description": "Still here eh? I appreciate the dedication! Now it's time to get to work. The site could use a little colour. Just don't go overboard. What does the G in RGB stand for?",
+    "dependsOn": 2,
     "tags": ["dev"]
   }
 

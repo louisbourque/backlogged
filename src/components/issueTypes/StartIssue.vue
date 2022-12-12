@@ -1,22 +1,15 @@
 <script setup lang="ts">
-import { useGameStore } from '@/stores/gameState'
+import CompleteTask from '@/components/CompleteTask.vue'
+import type { Issue } from '@/stores/gameState'
 
-const gameStore = useGameStore()
+const props = defineProps<{
+  issue: Issue
+}>()
 const emit = defineEmits<{
-  (e: 'update', value: unknown): void
+  (e: 'close'): void
 }>()
 </script>
 
 <template>
-  <div class="text-right">
-    <button
-      class="border-1 p-2 text-gray-50 rounded-lg border"
-      :class="
-        gameStore.showColor ? 'bg-green-600 border-green-800' : 'text-slate-800'
-      "
-      @click="emit('update', { state: 'done' })"
-    >
-      Complete Task
-    </button>
-  </div>
+  <CompleteTask :issue="props.issue" @close="emit('close')" />
 </template>

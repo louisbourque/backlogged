@@ -30,7 +30,7 @@ const update = (payload: Record<string, unknown>) => {
       v-if="props.issue.state === 'inProgress'"
       :is="issueTypes[props.issue.type as keyof typeof issueTypes]"
       :issue="props.issue"
-      @update="update"
+      @close="emit('close')"
     />
     <div v-else-if="props.issue.state === 'todo'" class="text-right">
       <button

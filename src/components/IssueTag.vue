@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import {
-  Calculator,
-  Play,
-  Activity,
-  FileQuestion,
-  Terminal,
-} from 'lucide-vue-next'
+import { Play, Activity, Terminal } from 'lucide-vue-next'
 import { useGameStore } from '@/stores/gameState'
 
 const gameStore = useGameStore()
@@ -24,23 +18,11 @@ const props = defineProps<{
       class="inline"
       :class="{ 'text-green-600': gameStore.showColor }"
     />
-    <Calculator
-      v-else-if="tag === 'math'"
-      size="12"
-      class="inline"
-      :class="{ 'text-yellow-600': gameStore.showColor }"
-    />
-    <FileQuestion
-      v-else-if="tag === 'trivia'"
-      size="12"
-      class="inline"
-      :class="{ 'text-purple-600': gameStore.showColor }"
-    />
     <Terminal
       v-else-if="tag === 'dev'"
       size="12"
       class="inline"
-      :class="{ 'text-teal-800': gameStore.showColor }"
+      :class="{ 'text-purple-800': gameStore.showColor }"
     />
     <Activity
       v-else

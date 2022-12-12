@@ -38,7 +38,6 @@ export type Issue = {
   type: string
   description: string
   expression?: string
-  answer?: string
   dependsOn?: number
   tags?: string[]
 }
@@ -61,11 +60,11 @@ export type RootState = {
 export const useGameStore = defineStore({
   id: 'gameStore',
   state: () =>
-  ({
-    name: '',
-    topBarStatus: false,
-    issues: [...(issues as Issue[])],
-  } as RootState),
+    ({
+      name: '',
+      topBarStatus: false,
+      issues: [...(issues as Issue[])],
+    } as RootState),
   getters: {
     topLinks: () => [{ to: '/home', text: 'Home', icon: 'home' }],
     topbar: (state) => state.topBarStatus,
@@ -85,7 +84,7 @@ export const useGameStore = defineStore({
     doneIssues: (state) =>
       state.issues.filter((issue) => issue.state === 'done'),
     showColor: (state) =>
-      state.issues.find((issue) => issue.id === 4)?.state === 'done',
+      state.issues.find((issue) => issue.id === 3)?.state === 'done',
   },
   actions: {
     loadGameState(localGameState: unknown) {
