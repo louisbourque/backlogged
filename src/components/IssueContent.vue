@@ -13,6 +13,9 @@ const emit = defineEmits<{
 }>()
 
 const update = (payload: Record<string, unknown>) => {
+  if (payload.state === 'inProgress' && props.issue.state === 'todo') {
+    payload.started = new Date().getTime()
+  }
   if (payload.state === 'done') {
     emit('close')
   }

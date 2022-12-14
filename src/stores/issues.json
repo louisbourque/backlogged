@@ -24,9 +24,40 @@
     "type": "dev",
     "title": "Add a splash of colour",
     "progress_label": "Painting",
-    "description": "Still here eh? I appreciate the dedication! Now it's time to get to work. The site could use a little colour. Just don't go overboard. What does the G in RGB stand for?",
+    "description": "Still here eh? I appreciate the dedication! Now it's time to get to work. The site could use a little colour.",
     "dependsOn": 2,
     "tags": ["dev"]
+  },
+  {
+    "id": 4,
+    "state": "todo",
+    "type": "dev",
+    "title": "Reflect on progress so far",
+    "progress_label": "Reflecting",
+    "description": "You've accomplished so much so far. Take a moment to think about what you've done so far",
+    "dependsOn": 3,
+    "tags": ["dev"]
+  },
+  {
+    "id": 5,
+    "state": "todo",
+    "type": "dev",
+    "title": "Improve progress bar",
+    "progress_label": "Smoothing",
+    "description": "The progress bar is looking great, but a little jumpy. Let's smooth out that progress indicator.",
+    "dependsOn": 4,
+    "tags": ["dev"]
+  },
+  {
+    "id": 6,
+    "state": "todo",
+    "type": "dev",
+    "title": "Test new progress bar",
+    "progress_label": "Testing",
+    "description": "Let's have a look at how our new progress bar is looking",
+    "dependsOn": 5,
+    "tags": ["qa"]
   }
+
 
 ]

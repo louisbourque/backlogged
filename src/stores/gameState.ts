@@ -37,6 +37,8 @@ export type Issue = {
   title: string
   type: string
   description: string
+  progress_label: string
+  started?: number
   expression?: string
   dependsOn?: number
   tags?: string[]
@@ -52,6 +54,7 @@ export type RootState = {
   inProgressIssues: Issue[]
   doneIssues: Issue[]
   showColor: boolean
+  betterProgressBar: boolean
   updateIssue: (payload: Issue) => void
   loadGameState: (localGameState?: unknown) => void
   saveGameState: () => void
@@ -85,6 +88,8 @@ export const useGameStore = defineStore({
       state.issues.filter((issue) => issue.state === 'done'),
     showColor: (state) =>
       state.issues.find((issue) => issue.id === 3)?.state === 'done',
+    betterProgressBar: (state) =>
+      state.issues.find((issue) => issue.id === 5)?.state === 'done',
   },
   actions: {
     loadGameState(localGameState: unknown) {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Play, Activity, Terminal } from 'lucide-vue-next'
+import { Play, Activity, Terminal, ClipboardList } from 'lucide-vue-next'
 import { useGameStore } from '@/stores/gameState'
 
 const gameStore = useGameStore()
@@ -24,6 +24,13 @@ const props = defineProps<{
       class="inline"
       :class="{ 'text-purple-800': gameStore.showColor }"
     />
+    <ClipboardList
+      v-else-if="tag === 'qa'"
+      size="12"
+      class="inline"
+      :class="{ 'text-blue-800': gameStore.showColor }"
+    />
+
     <Activity
       v-else
       size="12"
