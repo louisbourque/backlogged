@@ -6,6 +6,7 @@ import IssueContent from '@/components/IssueContent.vue'
 import { X } from 'lucide-vue-next'
 
 const gameStore = useGameStore()
+const canShowReset = import.meta.env.DEV
 
 const issueTypes = [
   { key: 'todoIssues', title: 'Todo' },
@@ -41,7 +42,7 @@ const closeIssue = () => {
         <div class="flex p-2 -m-2 mb-0 bg-slate-100 rounded-t-md">
           <h2>{{ type.title }}</h2>
           <div
-            v-if="(gameStore[type.key as keyof typeof gameStore] as Issue[]).length > 0"
+            v-if="gameStore.showIssueCounts && (gameStore[type.key as keyof typeof gameStore] as Issue[]).length > 0"
             class="inline px-1.5 ml-1 h-5 text-sm font-semibold bg-slate-300 rounded-full"
           >
             {{
@@ -49,17 +50,17 @@ const closeIssue = () => {
             }}
           </div>
         </div>
-        <div
+        <button
           v-for="issue in (gameStore[type.key as keyof typeof gameStore] as Issue[])"
           :key="issue.title"
-          class="p-1 bg-white rounded border border-slate-400 cursor-pointer"
+          class="p-1 bg-white rounded border border-slate-400 cursor-pointer text-left"
           @click="openIssue(issue)"
         >
           {{ issue.title }}
           <div v-if="issue.tags">
             <IssueTag v-for="tag in issue.tags" :tag="tag" :key="tag" />
           </div>
-        </div>
+        </button>
       </div>
     </div>
     <div v-if="currentIssue">
@@ -91,7 +92,11 @@ const closeIssue = () => {
         </div>
       </div>
     </div>
-    <div @click="gameStore.resetGameState()" class="absolute right-0 bottom-0">
+    <div
+      v-if="canShowReset"
+      @click="gameStore.resetGameState()"
+      class="fixed right-2 bottom-1"
+    >
       <button>reset</button>
     </div>
   </div>

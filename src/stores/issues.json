@@ -15,7 +15,7 @@
     "title": "Get into flow",
     "progress_label": "Focusing",
     "description": "You're starting to get the hang of this development work. Keep up the great work!",
-    "dependsOn": 1,
+    "dependsOn": [1],
     "tags": ["dev"]
   },
   {
@@ -25,7 +25,7 @@
     "title": "Add a splash of colour",
     "progress_label": "Painting",
     "description": "Still here eh? I appreciate the dedication! Now it's time to get to work. The site could use a little colour.",
-    "dependsOn": 2,
+    "dependsOn": [2],
     "tags": ["dev"]
   },
   {
@@ -35,7 +35,7 @@
     "title": "Reflect on progress so far",
     "progress_label": "Reflecting",
     "description": "You've accomplished so much so far. Take a moment to think about what you've done so far",
-    "dependsOn": 3,
+    "dependsOn": [3],
     "tags": ["dev"]
   },
   {
@@ -45,7 +45,7 @@
     "title": "Improve progress bar",
     "progress_label": "Smoothing",
     "description": "The progress bar is looking great, but a little jumpy. Let's smooth out that progress indicator.",
-    "dependsOn": 4,
+    "dependsOn": [4],
     "tags": ["dev"]
   },
   {
@@ -55,9 +55,98 @@
     "title": "Test new progress bar",
     "progress_label": "Testing",
     "description": "Let's have a look at how our new progress bar is looking",
-    "dependsOn": 5,
+    "dependsOn": [5],
     "tags": ["qa"]
+  },
+  {
+    "id": 7,
+    "state": "todo",
+    "type": "dev",
+    "title": "Add support for issue counts",
+    "progress_label": "Counting",
+    "description": "It would be helpful to show the number of issues in each column. Add a count of the issues to each step.",
+    "dependsOn": [6],
+    "tags": ["dev"]
+  },
+  {
+    "id": 8,
+    "state": "todo",
+    "type": "dev",
+    "title": "Create a new front end framework",
+    "progress_label": "(Re-)inventing",
+    "description": "This project would go a lot faster if we just had a new framework that works exactly how we want. Shouldn't take long and will save time by not researching existing frameworks.",
+    "dependsOn": [ 6 ],
+    "tags": ["dev"]
+  },
+  {
+    "id": 9,
+    "state": "todo",
+    "type": "dev",
+    "title": "Find Product Market Fit",
+    "progress_label": "Researching",
+    "description": "Okay, so we've got a site, we've got our own framework, now we need to find a product to build. Let's do some research and find a product that the market needs.",
+    "dependsOn": [ 8 ],
+    "tags": ["research"]
+  },
+  {
+    "id": 10,
+    "state": "todo",
+    "type": "dev",
+    "title": "Customer Interviews",
+    "progress_label": "Interviewing",
+    "description": "Great job! You've found the right product market fit. Now let's talk to some potential customers to see what their pain points are.",
+    "dependsOn": [ 9 ],
+    "tags": ["research"]
+  },
+  {
+    "id": 11,
+    "state": "todo",
+    "type": "dev",
+    "title": "Hire a Sales Manager",
+    "progress_label": "Selling",
+    "description": "Now that we know what we're building, we need someone to sell the product for us. Let's hire part time for now.",
+    "dependsOn": [ 10 ],
+    "tags": ["business"]
+  },
+  {
+    "id": 12,
+    "state": "todo",
+    "type": "dev",
+    "title": "Hire a Marketing Manager",
+    "progress_label": "Marketing",
+    "description": "Now that we know what we're building, we need someone to market our product. We need to be all over social media, go viral. Let's hire part time for now.",
+    "dependsOn": [ 10 ],
+    "tags": ["business"]
+  },
+  {
+    "id": 13,
+    "state": "todo",
+    "type": "dev",
+    "title": "Hire an accountant",
+    "progress_label": "Adding",
+    "description": "Now that we've got some staff we need some help to make sure they'll get paid. Let's hire an accountant to help us keep track of things.",
+    "dependsOnOr": [ 11, 12 ],
+    "tags": ["business"]
+  },
+  {
+    "id": 14,
+    "state": "todo",
+    "type": "dev",
+    "title": "Start development",
+    "progress_label": "Developing",
+    "description": "Okay, we've got a product, we've got clients who what that product. Let's start building that product now",
+    "dependsOn": [ 11, 12 ],
+    "tags": ["dev"]
+  },
+  {
+    "id": 15,
+    "state": "todo",
+    "type": "dev",
+    "title": "Archive Issues",
+    "progress_label": "Cleaning",
+    "description": "Wow, look at all those done issues! You've accomplished so much in so little time. But those issues are starting to pile up. Let's develop a feature to auto-archive older issues.",
+    "dependsOn": [ 14 ],
+    "tags": ["dev"]
   }
-
 
 ]

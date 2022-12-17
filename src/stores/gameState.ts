@@ -3,6 +3,11 @@ import issues from './issues'
 
 const STORAGE_KEY = 'backlogged.gameState'
 
+const ADD_COLOUR_ID = 3
+const IMPROVE_PROGRESS_ID = 5
+const SHOW_ISSUE_COUNTS = 7
+const ARCHIVE_DONE_ISSUES = 15
+
 addEventListener('storage', (event) => {
   if (event.newValue) {
     useGameStore().loadGameState(JSON.parse(event.newValue))
@@ -40,7 +45,8 @@ export type Issue = {
   progress_label: string
   started?: number
   expression?: string
-  dependsOn?: number
+  dependsOn?: number[]
+  dependsOnOr?: number[]
   tags?: string[]
 }
 
@@ -52,9 +58,12 @@ export type RootState = {
   topbar: boolean
   todoIssues: Issue[]
   inProgressIssues: Issue[]
+  allDoneIssues: Issue[]
   doneIssues: Issue[]
   showColor: boolean
   betterProgressBar: boolean
+  showIssueCounts: boolean
+  archiveDoneIssues: boolean
   updateIssue: (payload: Issue) => void
   loadGameState: (localGameState?: unknown) => void
   saveGameState: () => void
@@ -77,19 +86,44 @@ export const useGameStore = defineStore({
           issue &&
           issue.state === 'todo' &&
           (!issue.dependsOn ||
-            this.doneIssues.find(
-              (doneIssue: Issue) => doneIssue.id === issue.dependsOn
+            issue.dependsOn.every((dependsOn) =>
+              this.allDoneIssues.find(
+                (doneIssue: Issue) => doneIssue.id === dependsOn
+              )
+            )) &&
+          (!issue.dependsOnOr ||
+            issue.dependsOnOr.some((dependsOn) =>
+              this.allDoneIssues.find(
+                (doneIssue: Issue) => doneIssue.id === dependsOn
+              )
             ))
       )
     },
     inProgressIssues: (state) =>
       state.issues.filter((issue) => issue.state === 'inProgress'),
-    doneIssues: (state) =>
+    allDoneIssues: (state) =>
       state.issues.filter((issue) => issue.state === 'done'),
+    doneIssues(state) {
+      return this.archiveDoneIssues
+        ? state.issues
+            .filter((issue) => issue.state === 'done')
+            .reverse()
+            .slice(0, 10)
+            .reverse()
+        : this.allDoneIssues
+    },
     showColor: (state) =>
-      state.issues.find((issue) => issue.id === 3)?.state === 'done',
+      state.issues.find((issue) => issue.id === ADD_COLOUR_ID)?.state ===
+      'done',
     betterProgressBar: (state) =>
-      state.issues.find((issue) => issue.id === 5)?.state === 'done',
+      state.issues.find((issue) => issue.id === IMPROVE_PROGRESS_ID)?.state ===
+      'done',
+    showIssueCounts: (state) =>
+      state.issues.find((issue) => issue.id === SHOW_ISSUE_COUNTS)?.state ===
+      'done',
+    archiveDoneIssues: (state) =>
+      state.issues.find((issue) => issue.id === ARCHIVE_DONE_ISSUES)?.state ===
+      'done',
   },
   actions: {
     loadGameState(localGameState: unknown) {
@@ -109,6 +143,11 @@ export const useGameStore = defineStore({
         name: '',
         topBarStatus: false,
         issues: [...(issues as Issue[])],
+      })
+      this.issues.forEach((issue) => {
+        if (issue.id < 15) {
+          issue.state = 'done'
+        }
       })
     },
     updateIssue(payload: Issue) {

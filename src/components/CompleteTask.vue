@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { reactive, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useGameStore, type Issue } from '@/stores/gameState'
+
+const PROGRESS_MULTIPLIER = import.meta.env.DEV ? 0 : 1
+const PROGRESS_ADD = import.meta.env.DEV ? 1 : 5
+
 const props = defineProps<{
   issue: Issue
 }>()
@@ -27,7 +31,7 @@ const state: { now: number; intervalId: number | null } = reactive({
 const elapsedTime = computed(() => {
   return props.issue.started ? state.now - props.issue.started : 0
 })
-const maxValue = (props.issue.id * 1 ?? 1) + 5
+const maxValue = (props.issue.id ?? 1) * PROGRESS_MULTIPLIER + PROGRESS_ADD
 const readyToComplete = computed(() => {
   return elapsedTime.value / 1000 >= maxValue
 })

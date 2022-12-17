@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Play, Activity, Terminal, ClipboardList } from 'lucide-vue-next'
+import { Play, Activity, Terminal, ClipboardList, Microscope, Briefcase } from 'lucide-vue-next'
 import { useGameStore } from '@/stores/gameState'
 
 const gameStore = useGameStore()
@@ -29,6 +29,18 @@ const props = defineProps<{
       size="12"
       class="inline"
       :class="{ 'text-blue-800': gameStore.showColor }"
+    />
+    <Microscope
+      v-else-if="tag === 'research'"
+      size="12"
+      class="inline"
+      :class="{ 'text-red-800': gameStore.showColor }"
+    />
+    <Briefcase
+      v-else-if="tag === 'business'"
+      size="12"
+      class="inline"
+      :class="{ 'text-zinc-700': gameStore.showColor }"
     />
 
     <Activity
