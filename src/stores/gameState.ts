@@ -7,6 +7,8 @@ const ADD_COLOUR_ID = 3
 const IMPROVE_PROGRESS_ID = 5
 const SHOW_ISSUE_COUNTS = 7
 const ARCHIVE_DONE_ISSUES = 15
+const NAVIGATION_SECTION = 20
+const NAVIGATION_LINK_ABOUT = 21
 
 addEventListener('storage', (event) => {
   if (event.newValue) {
@@ -52,10 +54,8 @@ export type Issue = {
 
 export type RootState = {
   name: string
-  topBarStatus: boolean
   issues: Issue[]
   topLinks: { to: string; text: string; icon: string }[]
-  topbar: boolean
   todoIssues: Issue[]
   inProgressIssues: Issue[]
   allDoneIssues: Issue[]
@@ -64,6 +64,8 @@ export type RootState = {
   betterProgressBar: boolean
   showIssueCounts: boolean
   archiveDoneIssues: boolean
+  showNavigationSection: boolean
+  showAboutLink: boolean
   updateIssue: (payload: Issue) => void
   loadGameState: (localGameState?: unknown) => void
   saveGameState: () => void
@@ -74,12 +76,10 @@ export const useGameStore = defineStore({
   state: () =>
     ({
       name: '',
-      topBarStatus: false,
       issues: [...(issues as Issue[])],
     } as RootState),
   getters: {
     topLinks: () => [{ to: '/home', text: 'Home', icon: 'home' }],
-    topbar: (state) => state.topBarStatus,
     todoIssues(state) {
       return state.issues.filter(
         (issue) =>
@@ -124,6 +124,12 @@ export const useGameStore = defineStore({
     archiveDoneIssues: (state) =>
       state.issues.find((issue) => issue.id === ARCHIVE_DONE_ISSUES)?.state ===
       'done',
+    showNavigationSection: (state) =>
+      state.issues.find((issue) => issue.id === NAVIGATION_SECTION)?.state ===
+      'done',
+    showAboutLink: (state) =>
+      state.issues.find((issue) => issue.id === NAVIGATION_LINK_ABOUT)
+        ?.state === 'done',
   },
   actions: {
     loadGameState(localGameState: unknown) {
@@ -141,11 +147,10 @@ export const useGameStore = defineStore({
       }
       Object.assign(this, {
         name: '',
-        topBarStatus: false,
         issues: [...(issues as Issue[])],
       })
       this.issues.forEach((issue) => {
-        if (issue.id < 15) {
+        if (issue.id < 19) {
           issue.state = 'done'
         }
       })

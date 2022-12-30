@@ -75,7 +75,7 @@
     "title": "Create a new front end framework",
     "progress_label": "(Re-)inventing",
     "description": "This project would go a lot faster if we just had a new framework that works exactly how we want. Shouldn't take long and will save time by not researching existing frameworks.",
-    "dependsOn": [ 6 ],
+    "dependsOn": [6],
     "tags": ["dev"]
   },
   {
@@ -85,7 +85,7 @@
     "title": "Find Product Market Fit",
     "progress_label": "Researching",
     "description": "Okay, so we've got a site, we've got our own framework, now we need to find a product to build. Let's do some research and find a product that the market needs.",
-    "dependsOn": [ 8 ],
+    "dependsOn": [8],
     "tags": ["research"]
   },
   {
@@ -95,7 +95,7 @@
     "title": "Customer Interviews",
     "progress_label": "Interviewing",
     "description": "Great job! You've found the right product market fit. Now let's talk to some potential customers to see what their pain points are.",
-    "dependsOn": [ 9 ],
+    "dependsOn": [9],
     "tags": ["research"]
   },
   {
@@ -105,7 +105,7 @@
     "title": "Hire a Sales Manager",
     "progress_label": "Selling",
     "description": "Now that we know what we're building, we need someone to sell the product for us. Let's hire part time for now.",
-    "dependsOn": [ 10 ],
+    "dependsOn": [10],
     "tags": ["business"]
   },
   {
@@ -115,7 +115,7 @@
     "title": "Hire a Marketing Manager",
     "progress_label": "Marketing",
     "description": "Now that we know what we're building, we need someone to market our product. We need to be all over social media, go viral. Let's hire part time for now.",
-    "dependsOn": [ 10 ],
+    "dependsOn": [10],
     "tags": ["business"]
   },
   {
@@ -125,7 +125,7 @@
     "title": "Hire an accountant",
     "progress_label": "Adding",
     "description": "Now that we've got some staff we need some help to make sure they'll get paid. Let's hire an accountant to help us keep track of things.",
-    "dependsOnOr": [ 11, 12 ],
+    "dependsOnOr": [11, 12],
     "tags": ["business"]
   },
   {
@@ -135,7 +135,7 @@
     "title": "Start development",
     "progress_label": "Developing",
     "description": "Okay, we've got a product, we've got clients who what that product. Let's start building that product now",
-    "dependsOn": [ 11, 12 ],
+    "dependsOn": [11, 12],
     "tags": ["dev"]
   },
   {
@@ -145,8 +145,67 @@
     "title": "Archive Issues",
     "progress_label": "Cleaning",
     "description": "Wow, look at all those done issues! You've accomplished so much in so little time. But those issues are starting to pile up. Let's develop a feature to auto-archive older issues.",
-    "dependsOn": [ 14 ],
+    "dependsOn": [14],
+    "tags": ["dev"]
+  },
+  {
+    "id": 16,
+    "state": "todo",
+    "type": "dev",
+    "title": "Setup QA Servers",
+    "progress_label": "Provisioning",
+    "description": "We've got a basic app up and running locally. Let's set up a QA environment to run it in the cloud.",
+    "dependsOn": [15],
+    "tags": ["ops"]
+  },
+  {
+    "id": 17,
+    "state": "todo",
+    "type": "dev",
+    "title": "Setup Prod Servers",
+    "progress_label": "Repeating",
+    "description": "That was easy enough. Let's repeat the process to setup an identical prod environment.",
+    "dependsOn": [16],
+    "tags": ["ops"]
+  },
+  {
+    "id": 18,
+    "state": "todo",
+    "type": "dev",
+    "title": "Fix Prod Servers",
+    "progress_label": "Repairing",
+    "description": "Okay, not sure what happened. The environments have identical configuration, but the prod environment isn't working. A couple of fixes and we should be good to go.",
+    "dependsOn": [17],
+    "tags": ["ops"]
+  },
+  {
+    "id": 19,
+    "state": "todo",
+    "type": "dev",
+    "title": "Really Fix Prod Servers",
+    "progress_label": "Really Repairing",
+    "description": "Okay, that made it worse. Research what error code 10648103 means and we should be good.",
+    "dependsOn": [18],
+    "tags": ["ops"]
+  },
+  {
+    "id": 20,
+    "state": "todo",
+    "type": "dev",
+    "title": "Add top Navigation",
+    "progress_label": "Navigating",
+    "description": "Add a navigation bar at the top of the page. This will later be used to hold links.",
+    "dependsOn": [17],
+    "tags": ["dev"]
+  },
+  {
+    "id": 21,
+    "state": "todo",
+    "type": "dev",
+    "title": "Add About link",
+    "progress_label": "Explaining",
+    "description": "Now we've got a navigation section, let's add some links. An About page sounds like a good place to start.",
+    "dependsOn": [20],
     "tags": ["dev"]
   }
-
 ]

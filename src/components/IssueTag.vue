@@ -1,5 +1,13 @@
 <script setup lang="ts">
-import { Play, Activity, Terminal, ClipboardList, Microscope, Briefcase } from 'lucide-vue-next'
+import {
+  Play,
+  Activity,
+  Terminal,
+  ClipboardList,
+  Microscope,
+  Briefcase,
+  Server,
+} from 'lucide-vue-next'
 import { useGameStore } from '@/stores/gameState'
 
 const gameStore = useGameStore()
@@ -41,6 +49,12 @@ const props = defineProps<{
       size="12"
       class="inline"
       :class="{ 'text-zinc-700': gameStore.showColor }"
+    />
+    <Server
+      v-else-if="tag === 'ops'"
+      size="12"
+      class="inline"
+      :class="{ 'text-teal-700': gameStore.showColor }"
     />
 
     <Activity

@@ -9,7 +9,7 @@ gameState.loadGameState()
 
 <template>
   <div class="flex flex-col h-full">
-    <TopBar v-if="gameState.topbar" />
+    <TopBar v-if="gameState.showNavigationSection" />
     <main class="flex grow w-full bg-white">
       <RouterView />
     </main>
