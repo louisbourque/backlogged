@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import issues from './issues'
 
-const STORAGE_KEY = 'backlogged.gameState'
+const STORAGE_KEY = 'backlogged.issues'
 
 const ADD_COLOUR_ID = 3
 const IMPROVE_PROGRESS_ID = 5
@@ -14,7 +14,7 @@ addEventListener('storage', (event) => {
   if (event.newValue) {
     useGameStore().loadGameState(JSON.parse(event.newValue))
   } else {
-    useGameStore().resetGameState(true)
+    useGameStore().resetGameState()
   }
 })
 
@@ -30,12 +30,14 @@ const getFromStorage = () => {
   return null
 }
 
-const resetStorage = () => {
-  localStorage.removeItem(STORAGE_KEY)
-}
-
 const saveToStorage = (payload: unknown) => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(payload))
+}
+
+export type BaseIssue = {
+  id: number
+  state: 'todo' | 'inProgress' | 'done'
+  started?: number
 }
 
 export type Issue = {
@@ -132,28 +134,33 @@ export const useGameStore = defineStore({
         ?.state === 'done',
   },
   actions: {
-    loadGameState(localGameState: unknown) {
-      if (!localGameState) {
-        localGameState = getFromStorage()
+    loadGameState(localIssues: BaseIssue[]) {
+      if (!localIssues) {
+        localIssues = getFromStorage() ?? []
       }
-      Object.assign(this, localGameState)
+      this.$state.issues = (issues as Issue[]).map((issue) => ({
+        ...issue,
+        ...(localIssues.find((localIssue) => localIssue.id === issue.id) ?? {}),
+      }))
     },
     saveGameState() {
-      saveToStorage(this.$state as unknown)
+      saveToStorage(
+        this.$state.issues.map((issue) => ({
+          id: issue.id,
+          state: issue.state,
+          started: issue.started,
+        })) as unknown
+      )
     },
-    resetGameState(fromEvent?: boolean) {
-      if (!fromEvent) {
-        resetStorage()
-      }
-      Object.assign(this, {
-        name: '',
-        issues: [...(issues as Issue[])],
-      })
-      this.issues.forEach((issue) => {
+    resetGameState() {
+      this.$state.issues = [...(issues as Issue[])]
+
+      this.$state.issues.forEach((issue) => {
         if (issue.id < 19) {
           issue.state = 'done'
         }
       })
+      this.saveGameState()
     },
     updateIssue(payload: Issue) {
       const index = this.issues.findIndex((issue) => issue.id === payload.id)
