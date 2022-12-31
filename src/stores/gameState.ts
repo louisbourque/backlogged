@@ -54,35 +54,14 @@ export type Issue = {
   tags?: string[]
 }
 
-export type RootState = {
-  name: string
-  issues: Issue[]
-  topLinks: { to: string; text: string; icon: string }[]
-  todoIssues: Issue[]
-  inProgressIssues: Issue[]
-  allDoneIssues: Issue[]
-  doneIssues: Issue[]
-  showColor: boolean
-  betterProgressBar: boolean
-  showIssueCounts: boolean
-  archiveDoneIssues: boolean
-  showNavigationSection: boolean
-  showAboutLink: boolean
-  updateIssue: (payload: Issue) => void
-  loadGameState: (localGameState?: unknown) => void
-  saveGameState: () => void
-}
-
-export const useGameStore = defineStore({
-  id: 'gameStore',
-  state: () =>
-    ({
-      name: '',
-      issues: [...(issues as Issue[])],
-    } as RootState),
+export const useGameStore = defineStore('gameStore', {
+  state: () => ({
+    name: '',
+    issues: [...(issues as Issue[])],
+  }),
   getters: {
     topLinks: () => [{ to: '/home', text: 'Home', icon: 'home' }],
-    todoIssues(state) {
+    todoIssues(state): Issue[] {
       return state.issues.filter(
         (issue) =>
           issue &&
@@ -105,7 +84,7 @@ export const useGameStore = defineStore({
       state.issues.filter((issue) => issue.state === 'inProgress'),
     allDoneIssues: (state) =>
       state.issues.filter((issue) => issue.state === 'done'),
-    doneIssues(state) {
+    doneIssues(state): Issue[] {
       return this.archiveDoneIssues
         ? state.issues
             .filter((issue) => issue.state === 'done')
@@ -134,13 +113,14 @@ export const useGameStore = defineStore({
         ?.state === 'done',
   },
   actions: {
-    loadGameState(localIssues: BaseIssue[]) {
+    loadGameState(localIssues?: BaseIssue[]) {
       if (!localIssues) {
         localIssues = getFromStorage() ?? []
       }
       this.$state.issues = (issues as Issue[]).map((issue) => ({
         ...issue,
-        ...(localIssues.find((localIssue) => localIssue.id === issue.id) ?? {}),
+        ...(localIssues?.find((localIssue) => localIssue.id === issue.id) ??
+          {}),
       }))
     },
     saveGameState() {
