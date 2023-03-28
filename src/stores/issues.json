@@ -207,5 +207,25 @@
     "description": "Now we've got a navigation section, let's add some links. An About page sounds like a good place to start.",
     "dependsOn": [20],
     "tags": ["dev"]
+  },
+  {
+    "id": 22,
+    "state": "todo",
+    "type": "dev",
+    "title": "Add About content",
+    "progress_label": "Writing",
+    "description": "Now that we have an about page, let's write some copy to share a bit about the game.",
+    "dependsOn": [21],
+    "tags": ["dev"]
+  },
+  {
+    "id": 23,
+    "state": "todo",
+    "type": "dev",
+    "title": "Fix Done count",
+    "progress_label": "counting",
+    "description": "When we added the limit to the done column, the count is now always showing 10. Let's fix to to show the true number of done issues.",
+    "dependsOn": [21],
+    "tags": ["dev"]
   }
 ]

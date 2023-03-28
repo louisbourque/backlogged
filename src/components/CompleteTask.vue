@@ -60,8 +60,8 @@ const handleCompleteClick = () => {
 </script>
 
 <template>
-  <div class="flex justify-evenly">
-    <label
+  <div class="flex justify-between">
+    <label class="mx-auto"
       >{{ props.issue.progress_label }}:
       <progress
         :max="maxValue"
@@ -74,7 +74,7 @@ const handleCompleteClick = () => {
     >
     <button
       :aria-disabled="readyToComplete"
-      class="border-1 p-2 text-gray-50 rounded-lg border"
+      class="border-1 rounded-lg border p-2 text-gray-50"
       :class="
         gameStore.showColor
           ? readyToComplete

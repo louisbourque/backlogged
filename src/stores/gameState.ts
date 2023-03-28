@@ -9,6 +9,8 @@ const SHOW_ISSUE_COUNTS = 7
 const ARCHIVE_DONE_ISSUES = 15
 const NAVIGATION_SECTION = 20
 const NAVIGATION_LINK_ABOUT = 21
+const ABOUT_CONTENT = 22
+const SHOW_REAL_DONE_COUNT = 23
 
 addEventListener('storage', (event) => {
   if (event.newValue) {
@@ -93,6 +95,12 @@ export const useGameStore = defineStore('gameStore', {
             .reverse()
         : this.allDoneIssues
     },
+    doneIssuesCount(state): number {
+      return state.issues.find((issue) => issue.id === SHOW_REAL_DONE_COUNT)
+        ?.state === 'done'
+        ? this.allDoneIssues.length
+        : this.doneIssues.length
+    },
     showColor: (state) =>
       state.issues.find((issue) => issue.id === ADD_COLOUR_ID)?.state ===
       'done',
@@ -111,6 +119,9 @@ export const useGameStore = defineStore('gameStore', {
     showAboutLink: (state) =>
       state.issues.find((issue) => issue.id === NAVIGATION_LINK_ABOUT)
         ?.state === 'done',
+    showAboutContent: (state) =>
+      state.issues.find((issue) => issue.id === ABOUT_CONTENT)?.state ===
+      'done',
   },
   actions: {
     loadGameState(localIssues?: BaseIssue[]) {

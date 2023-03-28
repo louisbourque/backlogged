@@ -11,7 +11,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="p-4">
+  <div>
     <CompleteTask :issue="props.issue" @close="emit('close')" />
   </div>
 </template>

@@ -15,14 +15,22 @@ const gameState = useGameStore()
         <div class="flex justify-start lg:w-0 lg:flex-1">
           <RouterLink to="/board">
             <span class="sr-only">Backlogged</span>
-            <GitBranchPlus class="h-8 w-auto sm:h-10 text-emerald-800" alt="" />
+            <GitBranchPlus class="h-8 w-auto text-emerald-800 sm:h-10" alt="" />
           </RouterLink>
         </div>
-        <nav class="space-x-10 flex">
+        <nav class="flex space-x-10">
+          <RouterLink
+            v-if="gameState.showAboutLink"
+            to="/board"
+            class="text-base font-medium text-gray-500 hover:text-gray-900"
+            :class="{ 'font-bold text-gray-700': $route.fullPath === '/board' }"
+            >Board</RouterLink
+          >
           <RouterLink
             v-if="gameState.showAboutLink"
             to="/about"
             class="text-base font-medium text-gray-500 hover:text-gray-900"
+            :class="{ 'font-bold text-gray-700': $route.fullPath === '/about' }"
             >About</RouterLink
           >
           <a
