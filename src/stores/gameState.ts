@@ -147,7 +147,7 @@ export const useGameStore = defineStore('gameStore', {
       this.$state.issues = [...(issues as Issue[])]
 
       this.$state.issues.forEach((issue) => {
-        if (issue.id < 19) {
+        if (issue.id < 29) {
           issue.state = 'done'
         }
       })

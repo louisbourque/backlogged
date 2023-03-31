@@ -6,7 +6,9 @@
     "title": "Start Here",
     "progress_label": "Preparing",
     "description": "Welcome to Backlogged - the game for developers. Click the <strong>Get Started</strong> button to start your journey as a developer!",
-    "tags": ["start"]
+    "tags": [
+      "start"
+    ]
   },
   {
     "id": 2,
@@ -15,8 +17,12 @@
     "title": "Get into flow",
     "progress_label": "Focusing",
     "description": "You're starting to get the hang of this development work. Keep up the great work!",
-    "dependsOn": [1],
-    "tags": ["dev"]
+    "dependsOn": [
+      1
+    ],
+    "tags": [
+      "dev"
+    ]
   },
   {
     "id": 3,
@@ -25,8 +31,12 @@
     "title": "Add a splash of colour",
     "progress_label": "Painting",
     "description": "Still here eh? I appreciate the dedication! Now it's time to get to work. The site could use a little colour.",
-    "dependsOn": [2],
-    "tags": ["dev"]
+    "dependsOn": [
+      2
+    ],
+    "tags": [
+      "dev"
+    ]
   },
   {
     "id": 4,
@@ -35,8 +45,12 @@
     "title": "Reflect on progress so far",
     "progress_label": "Reflecting",
     "description": "You've accomplished so much so far. Take a moment to think about what you've done so far",
-    "dependsOn": [3],
-    "tags": ["dev"]
+    "dependsOn": [
+      3
+    ],
+    "tags": [
+      "dev"
+    ]
   },
   {
     "id": 5,
@@ -45,8 +59,12 @@
     "title": "Improve progress bar",
     "progress_label": "Smoothing",
     "description": "The progress bar is looking great, but a little jumpy. Let's smooth out that progress indicator.",
-    "dependsOn": [4],
-    "tags": ["dev"]
+    "dependsOn": [
+      4
+    ],
+    "tags": [
+      "dev"
+    ]
   },
   {
     "id": 6,
@@ -55,8 +73,12 @@
     "title": "Test new progress bar",
     "progress_label": "Testing",
     "description": "Let's have a look at how our new progress bar is looking",
-    "dependsOn": [5],
-    "tags": ["qa"]
+    "dependsOn": [
+      5
+    ],
+    "tags": [
+      "qa"
+    ]
   },
   {
     "id": 7,
@@ -65,8 +87,12 @@
     "title": "Add support for issue counts",
     "progress_label": "Counting",
     "description": "It would be helpful to show the number of issues in each column. Add a count of the issues to each step.",
-    "dependsOn": [6],
-    "tags": ["dev"]
+    "dependsOn": [
+      6
+    ],
+    "tags": [
+      "dev"
+    ]
   },
   {
     "id": 8,
@@ -75,8 +101,12 @@
     "title": "Create a new front end framework",
     "progress_label": "(Re-)inventing",
     "description": "This project would go a lot faster if we just had a new framework that works exactly how we want. Shouldn't take long and will save time by not researching existing frameworks.",
-    "dependsOn": [6],
-    "tags": ["dev"]
+    "dependsOn": [
+      6
+    ],
+    "tags": [
+      "dev"
+    ]
   },
   {
     "id": 9,
@@ -85,8 +115,12 @@
     "title": "Find Product Market Fit",
     "progress_label": "Researching",
     "description": "Okay, so we've got a site, we've got our own framework, now we need to find a product to build. Let's do some research and find a product that the market needs.",
-    "dependsOn": [8],
-    "tags": ["research"]
+    "dependsOn": [
+      8
+    ],
+    "tags": [
+      "research"
+    ]
   },
   {
     "id": 10,
@@ -95,8 +129,12 @@
     "title": "Customer Interviews",
     "progress_label": "Interviewing",
     "description": "Great job! You've found the right product market fit. Now let's talk to some potential customers to see what their pain points are.",
-    "dependsOn": [9],
-    "tags": ["research"]
+    "dependsOn": [
+      9
+    ],
+    "tags": [
+      "research"
+    ]
   },
   {
     "id": 11,
@@ -105,8 +143,12 @@
     "title": "Hire a Sales Manager",
     "progress_label": "Selling",
     "description": "Now that we know what we're building, we need someone to sell the product for us. Let's hire part time for now.",
-    "dependsOn": [10],
-    "tags": ["business"]
+    "dependsOn": [
+      10
+    ],
+    "tags": [
+      "business"
+    ]
   },
   {
     "id": 12,
@@ -115,8 +157,12 @@
     "title": "Hire a Marketing Manager",
     "progress_label": "Marketing",
     "description": "Now that we know what we're building, we need someone to market our product. We need to be all over social media, go viral. Let's hire part time for now.",
-    "dependsOn": [10],
-    "tags": ["business"]
+    "dependsOn": [
+      10
+    ],
+    "tags": [
+      "business"
+    ]
   },
   {
     "id": 13,
@@ -125,8 +171,13 @@
     "title": "Hire an accountant",
     "progress_label": "Adding",
     "description": "Now that we've got some staff we need some help to make sure they'll get paid. Let's hire an accountant to help us keep track of things.",
-    "dependsOnOr": [11, 12],
-    "tags": ["business"]
+    "dependsOnOr": [
+      11,
+      12
+    ],
+    "tags": [
+      "business"
+    ]
   },
   {
     "id": 14,
@@ -135,8 +186,13 @@
     "title": "Start development",
     "progress_label": "Developing",
     "description": "Okay, we've got a product, we've got clients who what that product. Let's start building that product now",
-    "dependsOn": [11, 12],
-    "tags": ["dev"]
+    "dependsOn": [
+      11,
+      12
+    ],
+    "tags": [
+      "dev"
+    ]
   },
   {
     "id": 15,
@@ -145,8 +201,12 @@
     "title": "Archive Issues",
     "progress_label": "Cleaning",
     "description": "Wow, look at all those done issues! You've accomplished so much in so little time. But those issues are starting to pile up. Let's develop a feature to auto-archive older issues.",
-    "dependsOn": [14],
-    "tags": ["dev"]
+    "dependsOn": [
+      14
+    ],
+    "tags": [
+      "dev"
+    ]
   },
   {
     "id": 16,
@@ -155,8 +215,12 @@
     "title": "Setup QA Servers",
     "progress_label": "Provisioning",
     "description": "We've got a basic app up and running locally. Let's set up a QA environment to run it in the cloud.",
-    "dependsOn": [15],
-    "tags": ["ops"]
+    "dependsOn": [
+      15
+    ],
+    "tags": [
+      "ops"
+    ]
   },
   {
     "id": 17,
@@ -165,8 +229,12 @@
     "title": "Setup Prod Servers",
     "progress_label": "Repeating",
     "description": "That was easy enough. Let's repeat the process to setup an identical prod environment.",
-    "dependsOn": [16],
-    "tags": ["ops"]
+    "dependsOn": [
+      16
+    ],
+    "tags": [
+      "ops"
+    ]
   },
   {
     "id": 18,
@@ -175,8 +243,12 @@
     "title": "Fix Prod Servers",
     "progress_label": "Repairing",
     "description": "Okay, not sure what happened. The environments have identical configuration, but the prod environment isn't working. A couple of fixes and we should be good to go.",
-    "dependsOn": [17],
-    "tags": ["ops"]
+    "dependsOn": [
+      17
+    ],
+    "tags": [
+      "ops"
+    ]
   },
   {
     "id": 19,
@@ -185,8 +257,12 @@
     "title": "Really Fix Prod Servers",
     "progress_label": "Really Repairing",
     "description": "Okay, that made it worse. Research what error code 10648103 means and we should be good.",
-    "dependsOn": [18],
-    "tags": ["ops"]
+    "dependsOn": [
+      18
+    ],
+    "tags": [
+      "ops"
+    ]
   },
   {
     "id": 20,
@@ -195,8 +271,12 @@
     "title": "Add top Navigation",
     "progress_label": "Navigating",
     "description": "Add a navigation bar at the top of the page. This will later be used to hold links.",
-    "dependsOn": [17],
-    "tags": ["dev"]
+    "dependsOn": [
+      17
+    ],
+    "tags": [
+      "dev"
+    ]
   },
   {
     "id": 21,
@@ -205,8 +285,12 @@
     "title": "Add About link",
     "progress_label": "Explaining",
     "description": "Now we've got a navigation section, let's add some links. An About page sounds like a good place to start.",
-    "dependsOn": [20],
-    "tags": ["dev"]
+    "dependsOn": [
+      20
+    ],
+    "tags": [
+      "dev"
+    ]
   },
   {
     "id": 22,
@@ -215,17 +299,101 @@
     "title": "Add About content",
     "progress_label": "Writing",
     "description": "Now that we have an about page, let's write some copy to share a bit about the game.",
-    "dependsOn": [21],
-    "tags": ["dev"]
+    "dependsOn": [
+      21
+    ],
+    "tags": [
+      "dev"
+    ]
   },
   {
     "id": 23,
     "state": "todo",
     "type": "dev",
     "title": "Fix Done count",
-    "progress_label": "counting",
+    "progress_label": "Patching",
     "description": "When we added the limit to the done column, the count is now always showing 10. Let's fix to to show the true number of done issues.",
-    "dependsOn": [21],
-    "tags": ["dev"]
+    "dependsOn": [
+      21
+    ],
+    "tags": [
+      "dev"
+    ]
+  },
+  {
+    "id": 24,
+    "state": "todo",
+    "type": "dev",
+    "title": "Prepare for launch",
+    "progress_label": "Preparing",
+    "description": "Now that we have our tools setup, the product is ready, it's time to launch it. Let's prepare for launch.",
+    "dependsOn": [
+      23
+    ],
+    "tags": [
+      "ops"
+    ]
+  },
+  {
+    "id": 25,
+    "state": "todo",
+    "type": "dev",
+    "title": "Launch!",
+    "progress_label": "Launching",
+    "description": "Flip the switch, update the DNS, and make the site ready for clients to come.",
+    "dependsOn": [
+      24
+    ],
+    "tags": [
+      "ops"
+    ]
+  },
+  {
+    "id": 26,
+    "state": "todo",
+    "type": "dev",
+    "title": "Wait",
+    "progress_label": "Waiting",
+    "description": "Now that we've launched, let's wait for the clients to come. They should be flooding in.",
+    "dependsOn": [
+      25
+    ],
+    "tags": [
+      "ops"
+    ]
+  },
+  {
+    "id": 27,
+    "state": "todo",
+    "type": "dev",
+    "title": "Verify Metrics",
+    "progress_label": "Measuring",
+    "description": "Hmm, we don't seem to be getting much traffic. Let's verify that the metrics are working. We probably have lots of traffic we're just not seeing it.",
+    "dependsOn": [
+      26
+    ],
+    "tags": [
+      "ops"
+    ]
+  },
+  {
+    "id": 28,
+    "state": "todo",
+    "type": "dev",
+    "title": "Monitor Analytics",
+    "progress_label": "Monitoring",
+    "description": "Turns out we totally forgot to enable the analytics. We're getting tons of pageviews, we're at the top of Reddit, Hacker News, Lobsters, Slashdot and we're trending on Mastodon!",
+    "dependsOn": [27],
+    "tags": ["ops"]
+  },
+  {
+    "id": 29,
+    "state": "todo",
+    "type": "dev",
+    "title": "Browser compatibility",
+    "progress_label": "Verifying",
+    "description": "We got a report from a user using the WebBold browser v11.42.55 on HorizonOS and it's not working. Let's setup a VM and download that browser to see if we can come up with a fix.",
+    "dependsOn": [28],
+    "tags": ["ops"]
   }
 ]
