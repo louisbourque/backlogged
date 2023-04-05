@@ -325,7 +325,7 @@
     "state": "todo",
     "type": "dev",
     "title": "Prepare for launch",
-    "progress_label": "Preparing",
+    "progress_label": "Readying",
     "description": "Now that we have our tools setup, the product is ready, it's time to launch it. Let's prepare for launch.",
     "dependsOn": [
       23
@@ -394,6 +394,86 @@
     "progress_label": "Verifying",
     "description": "We got a report from a user using the WebBold browser v11.42.55 on HorizonOS and it's not working. Let's setup a VM and download that browser to see if we can come up with a fix.",
     "dependsOn": [28],
+    "tags": ["ops"]
+  },
+  {
+    "id": 30,
+    "state": "todo",
+    "type": "dev",
+    "title": "Add blotch",
+    "progress_label": "Blotching",
+    "description": "We've gotten some complaints that the page is too bland and needs a little something. Add a blotch of colour in the corner of the page. Something barely noticeable.",
+    "dependsOn": [29],
+    "tags": ["ops"]
+  },
+  {
+    "id": 31,
+    "state": "todo",
+    "type": "dev",
+    "title": "Highlight issues on hover",
+    "progress_label": "Highlighting",
+    "description": "We've gotten complaints that it's not obvious that issues can be clicked. Give them a bit of a highlight on hover.",
+    "dependsOn": [29],
+    "tags": ["ops"]
+  },
+  {
+    "id": 32,
+    "state": "todo",
+    "type": "dev",
+    "title": "Center heading",
+    "progress_label": "Centering",
+    "description": "We've gotten complaints that the Backlogged heading looks odd and needs some centering. Center the heading.",
+    "dependsOn": [30],
+    "tags": ["ops"]
+  },
+  {
+    "id": 33,
+    "state": "todo",
+    "type": "dev",
+    "title": "Use Serif Headings",
+    "progress_label": "Typographing",
+    "description": "We've gotten complaints that the column headings don't stand out enough. Make the heading font a serif font, so it stands out of the rest of the text.",
+    "dependsOn": [30],
+    "tags": ["ops"]
+  },
+  {
+    "id": 34,
+    "state": "todo",
+    "type": "dev",
+    "title": "Add image to about section",
+    "progress_label": "Imaging",
+    "description": "We've gotten some complaints that the About section is a little boring. Add an image to the About section to liven it up.",
+    "dependsOn": [31],
+    "tags": ["ops"]
+  },
+  {
+    "id": 35,
+    "state": "todo",
+    "type": "dev",
+    "title": "Update favicon",
+    "progress_label": "Replacing",
+    "description": "We've gotten complaints that the favicon doesn't match the product logo. Oops! We left the default Vue favicon. Update the favicon to use the product logo.",
+    "dependsOn": [31],
+    "tags": ["ops"]
+  },
+  {
+    "id": 36,
+    "state": "todo",
+    "type": "dev",
+    "title": "Animate Issues",
+    "progress_label": "Animating",
+    "description": "We've gotten complains that the issues showing and hiding immediately is too jarring. Animate them sliding/fading in and out.",
+    "dependsOn": [32],
+    "tags": ["ops"]
+  },
+  {
+    "id": 37,
+    "state": "todo",
+    "type": "dev",
+    "title": "Customize Selection Colour",
+    "progress_label": "Customizing",
+    "description": "We've gotten complaints that the background color when selecting text is boring. Make the selection text a bit more interesting.",
+    "dependsOn": [32],
     "tags": ["ops"]
   }
 ]

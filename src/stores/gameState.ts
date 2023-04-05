@@ -11,6 +11,15 @@ const NAVIGATION_SECTION = 20
 const NAVIGATION_LINK_ABOUT = 21
 const ABOUT_CONTENT = 22
 const SHOW_REAL_DONE_COUNT = 23
+const SHOW_BLOTCH = 30
+const HOVER_ISSUES = 31
+const CENTER_HEADING = 32
+const SERIF_TYPE_TITLES = 33
+const ABOUT_IMAGE = 34
+const FAVICON = 35
+const ANIMATE_ISSUES = 36
+const SELECTION_COLOR = 37
+const LEFT_ALIGN_HEADING = 44
 
 addEventListener('storage', (event) => {
   if (event.newValue) {
@@ -19,6 +28,12 @@ addEventListener('storage', (event) => {
     useGameStore().resetGameState()
   }
 })
+
+const setFavion = () => {
+  document
+    .querySelector("link[rel~='icon']")
+    ?.setAttribute('href', '/favicon.png')
+}
 
 const getFromStorage = () => {
   const localGameState = localStorage.getItem(STORAGE_KEY)
@@ -122,6 +137,33 @@ export const useGameStore = defineStore('gameStore', {
     showAboutContent: (state) =>
       state.issues.find((issue) => issue.id === ABOUT_CONTENT)?.state ===
       'done',
+    showBlotch: (state) =>
+      state.issues.find((issue) => issue.id === SHOW_BLOTCH)?.state === 'done',
+    hoverIssues: (state) =>
+      state.issues.find((issue) => issue.id === HOVER_ISSUES)?.state === 'done',
+    leftAlignHeading: (state) =>
+      state.issues.find((issue) => issue.id === LEFT_ALIGN_HEADING)?.state ===
+      'done',
+    centerHeading(state): boolean {
+      return !!(
+        !this.leftAlignHeading &&
+        state.issues.find((issue) => issue.id === CENTER_HEADING)?.state ===
+          'done'
+      )
+    },
+    serifTypeTitles: (state) =>
+      state.issues.find((issue) => issue.id === SERIF_TYPE_TITLES)?.state ===
+      'done',
+    showAboutImage: (state) =>
+      state.issues.find((issue) => issue.id === ABOUT_IMAGE)?.state === 'done',
+    showFavicon: (state) =>
+      state.issues.find((issue) => issue.id === FAVICON)?.state === 'done',
+    animateIssues: (state) =>
+      state.issues.find((issue) => issue.id === ANIMATE_ISSUES)?.state ===
+      'done',
+    selectionColor: (state) =>
+      state.issues.find((issue) => issue.id === SELECTION_COLOR)?.state ===
+      'done',
   },
   actions: {
     loadGameState(localIssues?: BaseIssue[]) {
@@ -133,6 +175,9 @@ export const useGameStore = defineStore('gameStore', {
         ...(localIssues?.find((localIssue) => localIssue.id === issue.id) ??
           {}),
       }))
+      if (this.showFavicon) {
+        setFavion()
+      }
     },
     saveGameState() {
       saveToStorage(
@@ -142,12 +187,15 @@ export const useGameStore = defineStore('gameStore', {
           started: issue.started,
         })) as unknown
       )
+      if (this.showFavicon) {
+        setFavion()
+      }
     },
     resetGameState() {
       this.$state.issues = [...(issues as Issue[])]
 
       this.$state.issues.forEach((issue) => {
-        if (issue.id < 29) {
+        if (issue.id < 35) {
           issue.state = 'done'
         }
       })

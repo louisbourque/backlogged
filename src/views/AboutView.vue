@@ -6,6 +6,11 @@ const gameStore = useGameStore()
 
 <template>
   <div v-if="gameStore.showAboutContent" class="mx-auto max-w-2xl p-12">
+    <img
+      v-if="gameStore.showAboutImage"
+      src="/code-g7b9ac19d1_640.png"
+      class="pb-4"
+    />
     <p class="mb-4 indent-2 md:text-justify">
       Welcome to "Backlogged", a simulation game that lets you experience the
       excitement and challenges of being a software developer. Created by a solo
