@@ -2,8 +2,8 @@
 import { reactive, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useGameStore, type Issue } from '@/stores/gameState'
 
-const PROGRESS_MULTIPLIER = import.meta.env.DEV ? 0 : 1
-const PROGRESS_ADD = import.meta.env.DEV ? 1 : 5
+const PROGRESS_MULTIPLIER = import.meta.env.DEV ? 0 : 0.5
+const PROGRESS_ADD = 1
 
 const props = defineProps<{
   issue: Issue
