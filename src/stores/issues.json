@@ -402,7 +402,7 @@
     "type": "dev",
     "title": "Add blotch",
     "progress_label": "Blotching",
-    "description": "We've gotten some complaints that the page is too bland and needs a little something. Add a blotch of colour in the corner of the page. Something barely noticeable.",
+    "description": "We've gotten complaints that the page is too bland and needs a little something. Add a blotch of colour in the corner of the page. Something barely noticeable.",
     "dependsOn": [29],
     "tags": ["ops"]
   },
@@ -442,7 +442,7 @@
     "type": "dev",
     "title": "Add image to about section",
     "progress_label": "Imaging",
-    "description": "We've gotten some complaints that the About section is a little boring. Add an image to the About section to liven it up.",
+    "description": "We've gotten complaints that the About section is a little boring. Add an image to the About section to liven it up.",
     "dependsOn": [31],
     "tags": ["ops"]
   },
@@ -460,7 +460,7 @@
     "id": 36,
     "state": "todo",
     "type": "dev",
-    "title": "Animate Issues",
+    "title": "Animate issues",
     "progress_label": "Animating",
     "description": "We've gotten complains that the issues showing and hiding immediately is too jarring. Animate them sliding/fading in and out.",
     "dependsOn": [32],
@@ -470,10 +470,60 @@
     "id": 37,
     "state": "todo",
     "type": "dev",
-    "title": "Customize Selection Colour",
+    "title": "Customize selection colour",
     "progress_label": "Customizing",
     "description": "We've gotten complaints that the background color when selecting text is boring. Make the selection text a bit more interesting.",
     "dependsOn": [32],
+    "tags": ["ops"]
+  },
+  {
+    "id": 38,
+    "state": "todo",
+    "type": "dev",
+    "title": "Make heading more colourful",
+    "progress_label": "Colouring",
+    "description": "We've gotten complaints that the heading doesn't have enough colour. Make the heading a bit more colourful.",
+    "dependsOn": [33],
+    "tags": ["ops"]
+  },
+  {
+    "id": 39,
+    "state": "todo",
+    "type": "dev",
+    "title": "Make top navbar stand out",
+    "progress_label": "highlighting",
+    "description": "We've gotten complaints that the top navbar doesn't stand out enough and it hard to notice. Make it stand out a bit more.",
+    "dependsOn": [33],
+    "tags": ["ops"]
+  },
+  {
+    "id": 40,
+    "state": "todo",
+    "type": "dev",
+    "title": "Increase top navbar font size",
+    "progress_label": "Increasing",
+    "description": "We've gotten complaints that the links in the top navbar are a little too small. Make them a bit bigger.",
+    "dependsOn": [34],
+    "tags": ["ops"]
+  },
+  {
+    "id": 41,
+    "state": "todo",
+    "type": "dev",
+    "title": "Add depth to issue columns",
+    "progress_label": "Raising",
+    "description": "We've gotten complaints that the issue columns don't stand out enough. Give them some depth with shadows and a border.",
+    "dependsOn": [34],
+    "tags": ["ops"]
+  },
+  {
+    "id": 42,
+    "state": "todo",
+    "type": "dev",
+    "title": "Increase logo size",
+    "progress_label": "Growing",
+    "description": "We've got complaints that the logo doesn't stand out enough. Make it a bit bigger.",
+    "dependsOn": [35],
     "tags": ["ops"]
   }
 ]

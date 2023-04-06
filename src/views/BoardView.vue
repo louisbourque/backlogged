@@ -31,7 +31,13 @@ const closeIssue = () => {
 
 <template>
   <div class="flex w-full flex-col p-4 text-gray-800">
-    <h1 class="mb-2" :class="{ 'text-center': gameStore.centerHeading }">
+    <h1
+      class="mb-2"
+      :class="{
+        'text-center mx-auto': gameStore.centerHeading,
+        'gradient-text mr-auto': gameStore.headingColor,
+      }"
+    >
       Backlogged
     </h1>
 
@@ -40,6 +46,9 @@ const closeIssue = () => {
         v-for="type in issueTypes"
         :key="type.key"
         class="flex w-64 flex-none flex-col gap-2 rounded-md bg-slate-200 p-2"
+        :class="{
+          'drop-shadow-lg border border-slate-500 ': gameStore.issueColumnDepth,
+        }"
       >
         <div class="-m-2 mb-0 flex rounded-t-md bg-slate-100 p-2">
           <h2 :class="{ 'font-serif': gameStore.serifTypeTitles }">
@@ -131,5 +140,20 @@ const closeIssue = () => {
 .issue-enter-from .inner-issue,
 .issue-leave-to .inner-issue {
   transform: translateX(100%);
+}
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    #f00,
+    #ff7f00,
+    #cc0,
+    #0f0,
+    #1555e3,
+    #2e2b5f,
+    #8b00ff
+  );
+  background-clip: text;
+  clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>

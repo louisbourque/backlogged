@@ -19,6 +19,11 @@ const ABOUT_IMAGE = 34
 const FAVICON = 35
 const ANIMATE_ISSUES = 36
 const SELECTION_COLOR = 37
+const HEADING_COLOR = 38
+const TOP_NAV_GRADIENT = 39
+const TOP_NAV_FONTSIZE = 40
+const ISSUE_COLUMN_DEPTH = 41
+const LOGO_SIZE_INCREASE = 42
 const LEFT_ALIGN_HEADING = 44
 
 addEventListener('storage', (event) => {
@@ -163,6 +168,21 @@ export const useGameStore = defineStore('gameStore', {
       'done',
     selectionColor: (state) =>
       state.issues.find((issue) => issue.id === SELECTION_COLOR)?.state ===
+      'done',
+    headingColor: (state) =>
+      state.issues.find((issue) => issue.id === HEADING_COLOR)?.state ===
+      'done',
+    topNavGradient: (state) =>
+      state.issues.find((issue) => issue.id === TOP_NAV_GRADIENT)?.state ===
+      'done',
+    topNavFontsize: (state) =>
+      state.issues.find((issue) => issue.id === TOP_NAV_FONTSIZE)?.state ===
+      'done',
+    issueColumnDepth: (state) =>
+      state.issues.find((issue) => issue.id === ISSUE_COLUMN_DEPTH)?.state ===
+      'done',
+    logoSizeIncrease: (state) =>
+      state.issues.find((issue) => issue.id === LOGO_SIZE_INCREASE)?.state ===
       'done',
   },
   actions: {
