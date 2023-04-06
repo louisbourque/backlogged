@@ -27,6 +27,7 @@ const LOGO_SIZE_INCREASE = 42
 const TOP_NAV_BACKGROUND = 43
 const LEFT_ALIGN_HEADING = 44
 const HEADING_MARGIN = 45
+const WOODWORKING = 46
 
 addEventListener('storage', (event) => {
   if (event.newValue) {
@@ -36,10 +37,8 @@ addEventListener('storage', (event) => {
   }
 })
 
-const setFavion = () => {
-  document
-    .querySelector("link[rel~='icon']")
-    ?.setAttribute('href', '/favicon.png')
+const setFavicon = (icon: string) => {
+  document.querySelector("link[rel~='icon']")?.setAttribute('href', icon)
 }
 
 const getFromStorage = () => {
@@ -192,6 +191,8 @@ export const useGameStore = defineStore('gameStore', {
     headingMargin: (state) =>
       state.issues.find((issue) => issue.id === HEADING_MARGIN)?.state ===
       'done',
+    woodworking: (state) =>
+      state.issues.find((issue) => issue.id === WOODWORKING)?.state === 'done',
   },
   actions: {
     loadGameState(localIssues?: BaseIssue[]) {
@@ -203,8 +204,10 @@ export const useGameStore = defineStore('gameStore', {
         ...(localIssues?.find((localIssue) => localIssue.id === issue.id) ??
           {}),
       }))
-      if (this.showFavicon) {
-        setFavion()
+      if (this.woodworking) {
+        setFavicon('/favicon-shop.png')
+      } else if (this.showFavicon) {
+        setFavicon('/favicon.png')
       }
     },
     saveGameState() {
@@ -215,8 +218,10 @@ export const useGameStore = defineStore('gameStore', {
           started: issue.started,
         })) as unknown
       )
-      if (this.showFavicon) {
-        setFavion()
+      if (this.woodworking) {
+        setFavicon('/favicon-shop.png')
+      } else if (this.showFavicon) {
+        setFavicon('/favicon.png')
       }
     },
     resetGameState() {

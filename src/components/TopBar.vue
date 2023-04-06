@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { useGameStore } from '@/stores/gameState'
-import { GitBranchPlus } from 'lucide-vue-next'
+import { GitBranchPlus, Trees } from 'lucide-vue-next'
 
 const gameState = useGameStore()
 </script>
@@ -21,7 +21,14 @@ const gameState = useGameStore()
         <div class="flex justify-start lg:w-0 lg:flex-1">
           <RouterLink to="/board">
             <span class="sr-only">Backlogged</span>
+            <Trees
+              v-if="gameState.woodworking"
+              class="h-8 w-auto text-emerald-800"
+              :class="gameState.logoSizeIncrease ? 'sm:h-12' : 'sm:h-10'"
+              alt=""
+            />
             <GitBranchPlus
+              v-else
               class="h-8 w-auto text-emerald-800"
               :class="gameState.logoSizeIncrease ? 'sm:h-12' : 'sm:h-10'"
               alt=""
@@ -37,7 +44,7 @@ const gameState = useGameStore()
               'font-bold text-gray-700': $route.fullPath === '/board',
               'text-xl': gameState.topNavFontsize,
             }"
-            >Board</RouterLink
+            >{{ gameState.woodworking ? 'Shop' : 'Board' }}</RouterLink
           >
           <RouterLink
             v-if="gameState.showAboutLink"

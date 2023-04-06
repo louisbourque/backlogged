@@ -3,6 +3,7 @@ import { useGameStore, type Issue } from '@/stores/gameState'
 import { reactive, computed } from 'vue'
 import IssueTag from '@/components/IssueTag.vue'
 import IssueContent from '@/components/IssueContent.vue'
+import MyShop from '@/components/MyShop.vue'
 import { X } from 'lucide-vue-next'
 
 const gameStore = useGameStore()
@@ -30,7 +31,8 @@ const closeIssue = () => {
 </script>
 
 <template>
-  <div class="flex w-full flex-col p-4 text-gray-800">
+  <MyShop v-if="gameStore.woodworking" />
+  <div v-else class="flex w-full flex-col p-4 text-gray-800">
     <h1
       :class="{
         'text-center mx-auto': gameStore.centerHeading,

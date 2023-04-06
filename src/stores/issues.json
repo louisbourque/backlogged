@@ -555,5 +555,15 @@
     "description": "We've gotten complaints that the heading looks too squished. Add some margin to the top and bottom to give it some room.",
     "dependsOn": [36],
     "tags": ["ops"]
+  },
+  {
+    "id": 46,
+    "state": "todo",
+    "type": "dev",
+    "title": "Learn Woodworking",
+    "progress_label": "Carving",
+    "description": "Maybe Dev isn't really your thing. Lumber doesn't complain. Let's take up woodworking.",
+    "dependsOn": [39,40,41,42,43,44,45],
+    "tags": ["ops"]
   }
 ]
