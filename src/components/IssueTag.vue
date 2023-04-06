@@ -18,7 +18,7 @@ const props = defineProps<{
 
 <template>
   <div
-    class="border-1 inline py-px px-1 text-xs bg-slate-100 rounded-lg border border-slate-300"
+    class="border-1 inline rounded-lg border border-slate-300 bg-slate-100 py-px px-1 text-xs"
   >
     <Play
       v-if="tag === 'start'"

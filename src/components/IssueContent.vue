@@ -37,7 +37,7 @@ const update = (payload: Record<string, unknown>) => {
     />
     <div v-else-if="props.issue.state === 'todo'" class="text-right">
       <button
-        class="border-1 p-2 text-gray-50 rounded-lg border"
+        class="border-1 rounded-lg border p-2 text-gray-50"
         :class="
           gameStore.showColor
             ? 'bg-green-600 border-green-800'
