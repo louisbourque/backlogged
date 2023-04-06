@@ -16,15 +16,17 @@ const HOVER_ISSUES = 31
 const CENTER_HEADING = 32
 const SERIF_TYPE_TITLES = 33
 const ABOUT_IMAGE = 34
-const FAVICON = 35
+const TOP_NAV_GRADIENT = 35
 const ANIMATE_ISSUES = 36
 const SELECTION_COLOR = 37
 const HEADING_COLOR = 38
-const TOP_NAV_GRADIENT = 39
+const FAVICON = 39
 const TOP_NAV_FONTSIZE = 40
 const ISSUE_COLUMN_DEPTH = 41
 const LOGO_SIZE_INCREASE = 42
+const TOP_NAV_BACKGROUND = 43
 const LEFT_ALIGN_HEADING = 44
+const HEADING_MARGIN = 45
 
 addEventListener('storage', (event) => {
   if (event.newValue) {
@@ -183,6 +185,12 @@ export const useGameStore = defineStore('gameStore', {
       'done',
     logoSizeIncrease: (state) =>
       state.issues.find((issue) => issue.id === LOGO_SIZE_INCREASE)?.state ===
+      'done',
+    topNavBackground: (state) =>
+      state.issues.find((issue) => issue.id === TOP_NAV_BACKGROUND)?.state ===
+      'done',
+    headingMargin: (state) =>
+      state.issues.find((issue) => issue.id === HEADING_MARGIN)?.state ===
       'done',
   },
   actions: {

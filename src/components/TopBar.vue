@@ -9,11 +9,14 @@ const gameState = useGameStore()
 <template>
   <div
     class="relative bg-white"
-    :class="{ 'gradient-topbar': gameState.topNavGradient }"
+    :class="{
+      'gradient-topbar': gameState.topNavGradient,
+      'bg-slate-100 border-b-slate-400 border': gameState.topNavBackground,
+    }"
   >
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div
-        class="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10"
+        class="flex items-center justify-between py-6 md:justify-start md:space-x-10"
       >
         <div class="flex justify-start lg:w-0 lg:flex-1">
           <RouterLink to="/board">

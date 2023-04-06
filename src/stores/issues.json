@@ -450,10 +450,10 @@
     "id": 35,
     "state": "todo",
     "type": "dev",
-    "title": "Update favicon",
-    "progress_label": "Replacing",
-    "description": "We've gotten complaints that the favicon doesn't match the product logo. Oops! We left the default Vue favicon. Update the favicon to use the product logo.",
-    "dependsOn": [31],
+    "title": "Make top navbar stand out",
+    "progress_label": "highlighting",
+    "description": "We've gotten complaints that the top navbar doesn't stand out enough and it hard to notice. Make it stand out a bit more.",
+    "dependsOn": [33],
     "tags": ["ops"]
   },
   {
@@ -462,7 +462,7 @@
     "type": "dev",
     "title": "Animate issues",
     "progress_label": "Animating",
-    "description": "We've gotten complains that the issues showing and hiding immediately is too jarring. Animate them sliding/fading in and out.",
+    "description": "We've gotten complaints that the issues showing and hiding immediately is too jarring. Animate them sliding/fading in and out.",
     "dependsOn": [32],
     "tags": ["ops"]
   },
@@ -490,10 +490,10 @@
     "id": 39,
     "state": "todo",
     "type": "dev",
-    "title": "Make top navbar stand out",
-    "progress_label": "highlighting",
-    "description": "We've gotten complaints that the top navbar doesn't stand out enough and it hard to notice. Make it stand out a bit more.",
-    "dependsOn": [33],
+    "title": "Update favicon",
+    "progress_label": "Replacing",
+    "description": "We've gotten complaints that the favicon doesn't match the product logo. Oops! We left the default Vue favicon. Update the favicon to use the product logo.",
+    "dependsOn": [31],
     "tags": ["ops"]
   },
   {
@@ -524,6 +524,36 @@
     "progress_label": "Growing",
     "description": "We've got complaints that the logo doesn't stand out enough. Make it a bit bigger.",
     "dependsOn": [35],
+    "tags": ["ops"]
+  },
+  {
+    "id": 43,
+    "state": "todo",
+    "type": "dev",
+    "title": "Add background colour to top nav bar",
+    "progress_label": "Tinting",
+    "description": "We've gotten complaints that the top nav bar looks weird being the same colour as the rest of the page. Add some colour to separate it from the rest of the page.",
+    "dependsOn": [35],
+    "tags": ["ops"]
+  },
+  {
+    "id": 44,
+    "state": "todo",
+    "type": "dev",
+    "title": "Let align heading",
+    "progress_label": "Aligning",
+    "description": "We've gotten complaints that the centered heading doesn't look right. Let's align the heading to the left.",
+    "dependsOn": [36],
+    "tags": ["ops"]
+  },
+  {
+    "id": 45,
+    "state": "todo",
+    "type": "dev",
+    "title": "Add margin to heading",
+    "progress_label": "Spacing",
+    "description": "We've gotten complaints that the heading looks too squished. Add some margin to the top and bottom to give it some room.",
+    "dependsOn": [36],
     "tags": ["ops"]
   }
 ]

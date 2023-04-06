@@ -32,10 +32,11 @@ const closeIssue = () => {
 <template>
   <div class="flex w-full flex-col p-4 text-gray-800">
     <h1
-      class="mb-2"
       :class="{
         'text-center mx-auto': gameStore.centerHeading,
         'gradient-text mr-auto': gameStore.headingColor,
+        'my-4': gameStore.headingMargin,
+        'mb-2': !gameStore.headingMargin,
       }"
     >
       Backlogged
