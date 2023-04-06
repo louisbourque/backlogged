@@ -44,7 +44,7 @@
     "type": "dev",
     "title": "Reflect on progress so far",
     "progress_label": "Reflecting",
-    "description": "You've accomplished so much so far. Take a moment to think about what you've done so far",
+    "description": "You've accomplished so much so far. Take a moment to think about what you've done so far.",
     "dependsOn": [
       3
     ],
@@ -72,7 +72,7 @@
     "type": "dev",
     "title": "Test new progress bar",
     "progress_label": "Testing",
-    "description": "Let's have a look at how our new progress bar is looking",
+    "description": "Let's have a look at how our new progress bar is looking.",
     "dependsOn": [
       5
     ],
@@ -185,7 +185,7 @@
     "type": "dev",
     "title": "Start development",
     "progress_label": "Developing",
-    "description": "Okay, we've got a product, we've got clients who what that product. Let's start building that product now",
+    "description": "Okay, we've got a product, we've got clients who what that product. Let's start building that product now.",
     "dependsOn": [
       11,
       12
@@ -340,7 +340,7 @@
     "type": "dev",
     "title": "Launch!",
     "progress_label": "Launching",
-    "description": "Flip the switch, update the DNS, and make the site ready for clients to come.",
+    "description": "Flip the switch, update the DNS, and make the site ready for clients.",
     "dependsOn": [
       24
     ],
@@ -354,7 +354,7 @@
     "type": "dev",
     "title": "Wait",
     "progress_label": "Waiting",
-    "description": "Now that we've launched, let's wait for the clients to come. They should be flooding in.",
+    "description": "Now that we've launched, let's wait for the clients to arrive. They should be flooding in.",
     "dependsOn": [
       25
     ],
@@ -562,7 +562,7 @@
     "type": "dev",
     "title": "Learn Woodworking",
     "progress_label": "Carving",
-    "description": "Maybe Dev isn't really your thing. Lumber doesn't complain. Let's take up woodworking.",
+    "description": "Maybe software development isn't really your thing. Lumber doesn't complain. Let's take up woodworking.",
     "dependsOn": [39,40,41,42,43,44,45],
     "tags": ["ops"]
   }
