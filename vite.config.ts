@@ -15,4 +15,8 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 10130,
   },
+  build: {
+    outDir: './docs',
+  },
+  base: '/backlogged/',
 })
